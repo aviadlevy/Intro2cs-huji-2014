@@ -1,0 +1,44 @@
+aviadle
+30305538
+Aviad Levy
+
+================================
+=  README for ex3: Retirement  =
+================================
+
+
+usage: python3.3 Carrots.py <number_of_carrots>
+
+
+==================
+=  Description:  =
+==================
+
+I built the requested function:
+
+constant_pension: calculate retirement fund assuming constant pesnion
+
+variable_pension: calculate retirement fund assuming variable pension
+
+choose_best_fund: find the best fund to invest in
+
+growth_in_year: return the growth value in a given year
+
+inflation_growth_rates: calculate the adjusted growth list given inflation
+
+post_retirement: calculates the account status after retirement
+
+
+=============================
+=  List of submitted files: =
+=============================
+
+README		This file
+ex3.py    	Main file contains the function mentioned in Description.
+
+
+======================
+=  Special Comments  =
+======================
+
+...

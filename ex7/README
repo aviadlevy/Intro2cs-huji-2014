@@ -1,0 +1,54 @@
+aviadle
+30305538
+Aviad Levy
+
+====================================
+=  README for ex7: Twitter Trends  =
+====================================
+
+
+==================
+=  Description:  =
+==================
+
+this tar file contain 3 python files-
+
+- tweet:
+
+- build new class name tweet that use 'text','time','latitude','longitude' as var and
+  func name 'get_sentiment'
+
+- geo_tweet_tools:
+  the file contain the following functions:
+
+  - find_centroid - Find the centroid of a polygon
+  - find_center - Compute the geographic center of a state, averaged over its polygons
+  - find_closest_state - Returns a function that takes a tweet and returns the name of the state
+    closest to the given tweet's location.
+  - group_tweets_by_state - Return a dictionary that aggregates tweets by their nearest state center.
+
+- nation_mood:
+  the file contain the following functions:
+
+  - most_talkative_state - Return the state that has the largest number of tweets containing term.
+  - average_sentiments - Calculate the average sentiment of the states by averaging over all
+    the tweets from each state. Return the result as a dictionary from state
+    names to average sentiment values (numbers).
+  - group_tweets_by_hour - Return a list of lists of tweets that are gouped by the hour 
+    they were posted.
+
+=============================
+=  List of submitted files: =
+=============================
+
+README               This file
+tweet.py -           File contains the functions mentioned in Description.
+geo_tweet_tools.py - File contains the functions mentioned in Description.
+naion_mood.py      - File contains the functions mentioned in Description.
+
+======================
+=  Special Comments  =
+======================
+
+...
+

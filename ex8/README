@@ -1,0 +1,195 @@
+aviadle
+30305538
+Aviad Levy
+
+======================================================
+=  README for ex7: Hash Functions & Data Structures  =
+======================================================
+
+
+==================
+=  Description:  =
+==================
+
+this tar file contain 2 python files-
+
+- sllist_utils: contain the following function (belong to Linked List class)
+
+  - merge_lists:
+    Merges two sorted (in ascending order) lists into one new sorted list in
+    an ascending order. The resulting new list is created using new nodes
+    (copies of the nodes of the given lists).
+    The function run in complexity of O(n)
+
+  - contains_cycle:
+    Checks if the given list contains a cycle.
+    Returns true iff the list contains a cycle
+    The function run in complexity of O(n/2)
+
+  - reverse:
+    Reverses the given list (so the head becomes the last element, and every
+    element points to the element that was previously before it).
+    The function run in complexity of O(n)
+
+  - is_palindrome:
+    Checks if the given list is a palindrome. Returns true if the list is a palindrome
+    The function run in complexity of O(n)
+
+  - have_intersection:
+    Checks if the two given lists intersect. Returns true if the lists intersect.
+    The function run in complexity of O(n)
+
+  - get_item:
+    Returns the k'th element from of the list.
+    The function run in complexity of O(n)
+
+  - merge_sort:
+    Sorts the given list using the merge-sort algorithm.
+    The function run in complexity of O(n log n)
+
+- skipi_list: class of special Skipi_List contain the following function:
+
+  - add_first:
+    Adds an item to the beginning of a list.
+    The function run in complexity of O(1)
+
+  - remove_first:
+    Removes the first Node from the list and return its data.
+    The function run in complexity of O(1)
+
+  - add_last:
+    Adds an item to the end of a list.
+    The function run in complexity of O(1)
+
+  - remove_last:
+    Removes the last Node from the list and return its data.
+    The function run in complexity of O(1)
+
+  - remove_node:
+    Removes a given Node from the list, and returns its data.
+    The function run in complexity of O(1)
+
+  - __getitem__:
+    Returns the data of the k'th item of the list.
+    The function run in complexity of O(min{k,n})
+
+
+=============================
+=  List of submitted files: =
+=============================
+
+README          -  This file
+sllist_utils.py -  File contains the functions mentioned in Description.
+skipi_list.py   -  File contains the functions mentioned in Description.
+
+======================
+=  Special Comments  =
+======================
+
+...
+
+======================
+=      Answers       =
+======================
+
+===============
+=   Part 1    =
+===============
+
+1.  h0:
+    The function push any item to 0
+
+    Advantages: None
+    Disadvantages:  all the keys will be in the same cell. In order to find our key, will need too scan all our list again.
+
+2.  h1:
+    The function push each item to the cell with the ASCII value of the first letter modulo M (the amount of cells)
+
+    Advantages: spread the keys between the cells by the first letter. Insert time is pretty good
+    Disadvantages: we still got a lot of collisions because there is a lot of word starting with the same letter.  Insert time still not perfect
+
+3.  h2:
+    the function calculate the sum of all the letters ASCII value the do modulo M, then push key to cell
+
+    Advantages: minimize the collisions from h1, because we calculate the whole word.
+    Disadvantages: insert time and chance for collisions still not perfect
+
+4.  h3:
+    The function again sum all letters ASCII values, but before adding new letter, we multiple the temporary amount by 128. in the end, we modulo the sum by M, then push key to cell.
+
+    Advantages:  minimize the collisions from h2 because of the multiplication of 128
+    Disadvantages: insert time is not very good. Still chance for more collision then the optimal
+
+
+5.  h4:
+    The function get random value between 0 --> (M-1), the push key to cell
+
+    Advantages: optimal chance of collisions (perfect), insert time is pretty good
+    Disadvantages: in order to go to the keys again you'll have to scan the whole table again (random is unpredictable)
+
+
+6.  h5:
+    The function check the type of the key:
+     - if int: push to the “key modulo M” cell
+     - if string: calculates the value of the string by:
+       - take the value of the prev letter (if first letter, value is 0)
+       - shift the value 4 bit to the left
+       - then XOR the value by the ASCII value of the current letter
+       - then take the modulo M of the value and push the key to the cell with the same value
+     - if collections.Hashable: push the key to the cell with the “key.__str__()” value
+     - else: return None
+
+    Advantages: very good spreading between the cells
+    Disadvantages: pretty long time to insert.
+
+
+7.  h6:
+    The function check:
+     - if word length is 0: push key to the 0 cell
+     - else:
+       - take the ASCII value of the first letter and shift it to the left by 7 (prime number)
+       - goes through all chars in key and multiply the value by 1000003 (prime number)
+       - then XOR the new value we get by the ASCII value of the current letter
+       - then XOR again the new value we  get by the length of the word
+       - then take the modulo M of the value and push the key to the cell with the same value
+
+    Advantages: very good spreading between cells
+    Disadvantages: pretty long time to insert.
+
+
+8.  h7:
+    The function calculate the Unicode value of the key. Then encrypt the value using “md5” method, by hexadecimal  (16 numbers). Then convert the new hex value to int by using int(hex_value,16) [convert from hex to decimal].
+    Then modulo by M, and push to the cell with the same value
+
+    Advantages: very good spreading between cells. Very easy to export keys
+    Disadvantages: a little longer time to insert then other function
+
+
+09. h8:
+    same as h7 only we encrypt by “sha1” method.
+
+    Advantages: very good spreading between cells. Very easy to export keys
+    Disadvantages: a little longer time to insert then other function
+
+
+10. h9:
+    the function use the pythonic hash method to calculate the key, then modulo by M.
+
+    Advantages: very good spreading between cells. Very easy to export keys. Best time(!)
+    Disadvantages: None
+
+
+
+
+    The best function is 'h9' because it's got the least collisions and the best time.
+ 
+    It's better using prime number because it's make the spreading better.
+
+
+===============
+=   Part 3    =
+===============
+
+The following complexity will change:
+contain_cycle & intersection - the complexity will be O(1) because we can go straight to the end of the lise
+                               and check if he's got next

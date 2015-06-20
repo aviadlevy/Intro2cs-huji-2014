@@ -1,0 +1,49 @@
+aviadle
+30305538
+Aviad Levy
+
+================================
+=  README for ex3: Retirement  =
+================================
+
+
+==================
+=  Description:  =
+==================
+
+I built the requested function:
+
+in ex4.py:
+
+live_like_a_king - Find the maximal expenses you may expend during your lifetime
+
+bubble_sort_2nd_value - sort a list of tuples using bubble sort algorithm
+
+choosing_retirement_home - Find the most expensive retirement house one can afford.
+
+get_value_key - returns a function that calculates the new value of a house
+
+choose_retirement_home_opponents - Find the best retiremnt house that is affordable and fun
+
+in battleship.py:
+
+new_board - creates a new board game for a Battleship game
+
+place_ship - Put a new ship on the board
+
+fire - implement a fire in battleship game
+
+=============================
+=  List of submitted files: =
+=============================
+
+README		This file
+ex4.py    	File contains the retirement functions mentioned in Description.
+battleship.py   File contains the battleship functions mentioned in Description.
+
+
+======================
+=  Special Comments  =
+======================
+
+...

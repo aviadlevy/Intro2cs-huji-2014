@@ -1,0 +1,87 @@
+aviadle
+30305538
+Aviad Levy
+
+================================
+=  README for ex6: One Liners  =
+================================
+
+
+==================
+=  Description:  =
+==================
+
+I built the requested function:
+
+is_two_palindrome
+    The function tests if the given string is a “two palindrome” or not.
+    in this function i used:
+    slicing for string in order to get the two half and the reverse for each
+    one and compare them.
+    i used special condition for 1 length word so it match the expected result.    
+
+uni_sort
+    The function combines two unsorted lists of integers into one sorted
+    list.
+    at first i merge both list, without sorting. then i used enumerate so i can
+    scan the rest of the list to get rid of duplicates, and used 'sorted'
+    on the result    
+
+dot_product
+    The function returns the dot product of two vectors.
+    in this function i used:
+    zip - make iterators from sequence. specificly it get the two values
+    from each 'i' index in both lists to both variables.
+    sum - summarize the whole values we get
+
+list_intersection
+    The function returns a new list sorted in ascending order. The
+    output list contain those integers that appear in both input lists.
+    in this function i used:
+    set on the values from firstList if they appear on the second
+
+list_difference
+    The function returns a list sorted in ascending order. The output
+    list contain those integers that appear in just one of the input lists.
+    in this function i used:
+    set on the values from firstList if they not in the second and the
+    value from the secondList if they not in the first
+
+random_string
+    The function generates a random string of a given length.
+    in this function i used:
+    ''.join - add char that have been chosen from the random function
+    random.choice - return a random element from given sequence  -
+                    need to import random
+    string.ascii_lowercase - all the lowercase letters  -
+                             need to import string
+
+word_mapper
+    The function returns a dictionary mapping from the words in the input
+    text to their number appearances.
+    in this function I used:
+    re.sub - replace the given char in another char. (need to import 're').
+    specificity, I used it to replace all none letters/numbers in white
+    space. ([\W] mean that we replace all none [a-zA-Z0-9], and i add also '_')
+    then I put it in list (using split()) and convert it to lowercase
+    (using lower()).
+    list.count - count the number of appearance in my list
+
+gimme_a_value:
+    The function get a function and a starting point and returns a
+    generator - on first call the starting point and then returns the value
+    after pushing him to the function
+
+=============================
+=  List of submitted files: =
+=============================
+
+README		This file
+oneliners.py   	File contains the functions mentioned in Description.
+
+
+======================
+=  Special Comments  =
+======================
+
+...

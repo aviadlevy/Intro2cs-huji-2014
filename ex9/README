@@ -1,0 +1,71 @@
+aviadle
+30305538
+Aviad Levy
+
+=========================================
+=  README for ex7: Huffman Compression  =
+=========================================
+
+
+==================
+=  Description:  =
+==================
+
+this tar file contain-
+    hzlib.py:
+      symbol_count - The function get data (some character)
+        The function return dictionary with num of appearance for each char
+        in data.
+
+      make_huffman_tree - The function get dictionary with num of appearance for chars.
+        The function return huffman tree. (will be present by tuples)
+
+      build_codebook - the function gets huffman tree (from make_huff_tree), and prefix
+        (a variable used for the recursive process).
+        the function return dict which take each val and set the key to be tuple:
+        (length [of the binary number],code [the decimal val of the binary number])
+
+      build_canonical_codebook - the function get codebook and return canonical codebook
+
+      build_decodebook - the function get codebook and return dictionary that can help decode the codebook
+
+      compress - the function get values (inside corpus) and code book
+        the function return iterator that return '0' or '1' case on the values
+        and the codebook (match binary num for each value)
+
+      decompress - the function get bits and decodebook. the function return
+        iterator of the values with the original values from compressed codebook
+
+      pad - The function get sequence of bits.
+        The function adds '1' and '0'-s to the last byte.
+        The function return iterator that iterate the decimal values for each byte.
+
+      unpad - The function gets byte sequence (like the output of pad).
+        The function remove '0'-s and '1' from last byte and return iterator
+        that return the binary value fo the sequence
+
+      join - the function gets list of numbers (data) and codebook
+        the function check if one of the index in range of 0 - 255 (bits) is in codebook.
+        if so it yield the length value from the code book. otherwise,it yield 0. then it yield all the numbers in data
+
+      split - the function get one bytes sequence of bits and data.
+        the function split the and return a tuple with both data and the canonical codebook for the bits sequence
+
+=============================
+=  List of submitted files: =
+=============================
+
+README          -  This file
+hzlib.py -  File contains the functions mentioned in Description.
+
+======================
+=  Special Comments  =
+======================
+
+=============
+=  Answers  =
+=============
+
+The compression process is taking more memory because we always compare the
+current compress length with the previous, so you'll always "remember" 2
+variable in each round. in de-compressing, we don't need to do that.
